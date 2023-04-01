@@ -36,7 +36,7 @@ package main
 
 import (
 	"github.com/joho/godotenv"
-	"github.com/michaellanpart/structer"
+	"github.com/cranialfeed/structer"
 )
 
 func main() {
