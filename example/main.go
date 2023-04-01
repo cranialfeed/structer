@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/cranialfeed/structer"
 	"github.com/joho/godotenv"
-	"github.com/michaellanpart/structer"
 )
 
 func main() {
