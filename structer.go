@@ -15,10 +15,11 @@ var (
 )
 
 type Structer interface {
-	Set(ptr interface{}) error
+	SetDefaults(ptr interface{}) error
 	MustSet(ptr interface{})
 	CanUpdate(v interface{}) bool
 	PrettyPrint(v interface{})
+	SetField(myStruct interface{}, fieldName string, val any) error
 }
 
 // SetDefaults initializes members in a struct referenced by a pointer.
@@ -57,6 +58,9 @@ func CanUpdate(v interface{}) bool {
 	return isInitialValue(reflect.ValueOf(v))
 }
 
+// getValue returns the "env" value or the "default" value
+// associated with the field. Default value is only used if
+// env value is not pooulated.
 func getValue(field reflect.StructField) string {
 	var retval string
 	defaultValue := field.Tag.Get("default")
